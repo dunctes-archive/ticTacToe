@@ -1,8 +1,10 @@
 package me.duncte123.ticTacToe
 
+import me.duncte123.ticTacToe.entities.Player
+import me.duncte123.ticTacToe.entities.TttButton
+
 import javax.swing.*
-import java.awt.Color
-import java.awt.Font
+import java.awt.*
 
 class GameBoardBuilder extends JFrame {
 
@@ -15,7 +17,7 @@ class GameBoardBuilder extends JFrame {
         this.player1 = p1
         this.player2 = p2
 
-        setBounds(250, 250, w, h)
+        setBounds(0, 0, w, h)
         setDefaultCloseOperation(EXIT_ON_CLOSE)
 
         addButtons(this)
@@ -33,19 +35,21 @@ class GameBoardBuilder extends JFrame {
 
         def columnSpace = window.height / columns //Y
         def rowSpace = window.width / rows //X
-        int btnSize = columnSpace - 10
+        int btnSize = columnSpace - 20
+        int btnCount = 0
 
         3.times {
             def whatColumn = it % 3
             3.times {
                 def whatRow = it % 9
-                def btn = new JButton()
-                btn.addActionListener(new ButtonListener())
+                def btn = new TttButton(btnCount)
+                //btn.addActionListener(new ButtonListener())
                 btn.setBounds((int) (columnSpace * whatColumn), (int) (rowSpace * whatRow), btnSize, btnSize)
-                btn.setBackground(Color.BLACK)
-                btn.setForeground(Color.WHITE)
-                btn.setFont(new Font("Arial", Font.PLAIN, 100))
+//                btn.setBackground(Color.BLACK)
+//                btn.setForeground(Color.WHITE)
+//                btn.setFont(new Font("Arial", Font.PLAIN, 100))
                 window.contentPane.add(btn)
+                btnCount++
             }
         }
     }

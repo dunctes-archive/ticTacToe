@@ -1,4 +1,4 @@
-package me.duncte123.ticTacToe
+package me.duncte123.ticTacToe.entities
 
 class Player {
 

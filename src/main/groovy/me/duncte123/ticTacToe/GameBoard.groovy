@@ -1,5 +1,7 @@
 package me.duncte123.ticTacToe
 
+import me.duncte123.ticTacToe.entities.Player
+
 import javax.swing.JFrame
 
 class GameBoard {
