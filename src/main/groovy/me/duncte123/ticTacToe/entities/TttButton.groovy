@@ -19,6 +19,6 @@ class TttButton extends JButton {
         setFont(new Font("Arial", Font.PLAIN, 100))
     }
 
-    int getId() { btnId }
+    int getBtnId() { btnId }
 
 }

@@ -5,8 +5,6 @@ import me.duncte123.ticTacToe.entities.TttButton
 import me.duncte123.ticTacToe.utils.CheckForWin
 
 import javax.swing.JOptionPane
-import javax.swing.JPanel
-import java.awt.Color
 import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 
@@ -22,11 +20,11 @@ class ButtonListener implements ActionListener {
 
         if(Main.board.player1.isCurrent) {
             source.setText(Main.board.player1.symbol)
-            hasPlayerWon = CheckForWin.hasPlayerWon(Main.board.player1, source.getId())
+            hasPlayerWon = CheckForWin.hasPlayerWon(Main.board.player1, source.getBtnId())
             curPlayer = Main.board.player1
         } else if(Main.board.player2.isCurrent) {
             source.setText(Main.board.player2.symbol)
-            hasPlayerWon = CheckForWin.hasPlayerWon(Main.board.player2, source.getId())
+            hasPlayerWon = CheckForWin.hasPlayerWon(Main.board.player2, source.getBtnId())
             curPlayer = Main.board.player2
         }
 
