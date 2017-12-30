@@ -13,9 +13,9 @@ class Main {
 
         def boardBuilder = new GameBoardBuilder(500, 500, player1, player2)
 
-        boardBuilder.setVisible(true)
-
         board = boardBuilder.build()
+
+        board.frame.setVisible(true)
 
     }
 
