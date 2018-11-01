@@ -1,4 +1,4 @@
-package me.duncte123.ticTacToe
+package me.duncte123.ticTacToe.entities.board
 
 import me.duncte123.ticTacToe.entities.Player
 import me.duncte123.ticTacToe.entities.TttButton
@@ -20,7 +20,7 @@ class GameBoardBuilder extends JFrame {
         setBounds(0, 0, w, h)
         setDefaultCloseOperation(EXIT_ON_CLOSE)
 
-        addButtons(this)
+        addButtons()
 
         def panel = new JPanel()
         panel.setBounds(0, 0, this.width, this.height)
@@ -29,12 +29,12 @@ class GameBoardBuilder extends JFrame {
         this.contentPane.add(panel)
     }
 
-    private static def addButtons(JFrame window) {
+    private void addButtons() {
         def columns = 3
         def rows = 3
 
-        def columnSpace = window.height / columns //Y
-        def rowSpace = window.width / rows //X
+        def columnSpace = this.height / columns //Y
+        def rowSpace = this.width / rows //X
         int btnSize = columnSpace - 20
         int btnCount = 0
 
@@ -48,7 +48,7 @@ class GameBoardBuilder extends JFrame {
 //                btn.setBackground(Color.BLACK)
 //                btn.setForeground(Color.WHITE)
 //                btn.setFont(new Font("Arial", Font.PLAIN, 100))
-                window.contentPane.add(btn)
+                this.contentPane.add(btn)
                 btnCount++
             }
         }

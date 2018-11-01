@@ -1,5 +1,6 @@
-package me.duncte123.ticTacToe
+package me.duncte123.ticTacToe.entities.board
 
+import groovy.transform.PackageScope
 import me.duncte123.ticTacToe.entities.Player
 
 import javax.swing.JFrame
@@ -10,6 +11,7 @@ class GameBoard {
     public final Player player2
     public final JFrame frame
 
+    @PackageScope
     GameBoard(Player p1, Player p2, JFrame f) {
         this.player1 = p1
         this.player2 = p2
@@ -17,8 +19,8 @@ class GameBoard {
     }
 
     def swapPlayers() {
-        player1.setCurrent(!player1.isCurrent)
-        player2.setCurrent(!player2.isCurrent)
+        player1.current = !player1.current
+        player2.current = !player2.current
     }
 
 }
