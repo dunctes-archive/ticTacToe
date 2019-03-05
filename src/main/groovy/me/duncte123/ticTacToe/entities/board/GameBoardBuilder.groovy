@@ -1,5 +1,6 @@
 package me.duncte123.ticTacToe.entities.board
 
+import me.duncte123.ticTacToe.Main
 import me.duncte123.ticTacToe.entities.Player
 import me.duncte123.ticTacToe.entities.TttButton
 
@@ -8,10 +9,10 @@ import java.awt.*
 
 class GameBoardBuilder extends JFrame {
 
-    public final Player player1
-    public final Player player2
+    final Player player1
+    final Player player2
 
-    GameBoardBuilder(int w, int h, Player p1, Player p2) {
+    GameBoardBuilder(int w, int h, Player p1, Player p2, Main instance) {
         super("Tic Tac Toe")
 
         this.player1 = p1
@@ -20,7 +21,7 @@ class GameBoardBuilder extends JFrame {
         setBounds(0, 0, w, h)
         setDefaultCloseOperation(EXIT_ON_CLOSE)
 
-        addButtons()
+        addButtons(instance)
 
         def panel = new JPanel()
         panel.setBounds(0, 0, this.width, this.height)
@@ -29,25 +30,21 @@ class GameBoardBuilder extends JFrame {
         this.contentPane.add(panel)
     }
 
-    private void addButtons() {
+    private void addButtons(Main instance) {
         def columns = 3
         def rows = 3
 
         def columnSpace = this.height / columns //Y
         def rowSpace = this.width / rows //X
         int btnSize = columnSpace - 20
-        int btnCount = 0
+        def btnCount = 0
 
         3.times {
             def whatColumn = it % 3
             3.times {
                 def whatRow = it % 9
-                def btn = new TttButton(btnCount)
-                //btn.addActionListener(new ButtonListener())
+                def btn = new TttButton(btnCount, instance)
                 btn.setBounds((int) (columnSpace * whatColumn), (int) (rowSpace * whatRow), btnSize, btnSize)
-//                btn.setBackground(Color.BLACK)
-//                btn.setForeground(Color.WHITE)
-//                btn.setFont(new Font("Arial", Font.PLAIN, 100))
                 this.contentPane.add(btn)
                 btnCount++
             }

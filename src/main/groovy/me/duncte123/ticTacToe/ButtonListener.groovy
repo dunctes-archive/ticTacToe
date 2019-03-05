@@ -1,6 +1,5 @@
 package me.duncte123.ticTacToe
 
-import me.duncte123.ticTacToe.entities.Player
 import me.duncte123.ticTacToe.entities.TttButton
 import me.duncte123.ticTacToe.utils.CheckForWin
 
@@ -10,11 +9,13 @@ import java.awt.event.ActionListener
 
 class ButtonListener implements ActionListener {
 
+    Main instance
+
     @Override
     void actionPerformed(ActionEvent e) {
         def source = (TttButton) e.source
         def curPlayer = null
-        def board = Main.instance.board
+        def board = instance.board
         def p1 = board.player1
         def p2 = board.player2
 
@@ -30,7 +31,7 @@ class ButtonListener implements ActionListener {
 
 
         source.setText(curPlayer.symbol)
-        boolean hasPlayerWon = CheckForWin.hasPlayerWon(curPlayer, source.getBtnId())
+        def hasPlayerWon = CheckForWin.hasPlayerWon(instance, curPlayer, source.getBtnId())
 
         if (hasPlayerWon) {
             JOptionPane.showMessageDialog(null, "Player $curPlayer.name has won.\n" +
